@@ -47,9 +47,6 @@ jobs:
         with:
           name: build-artifact
           path: 'build/'
-          /*  name: adf-armtemplate
-              path: ${{ steps.export.outputs.arm-template-directory }}
-          */
           if-no-files-found: error
 
   
