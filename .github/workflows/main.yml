@@ -24,7 +24,7 @@ jobs:
       - name: Export ARM template
         id: export1
         run: |
-          echo "::set-output name=arm-template-directory::my_root_folder/factory/dev-datafact-gs"
+          echo "::set-output name=arm-template-directory::adf_publish/factory/dev-datafact-gs"
 
       - name: Check ARM template path
         run: |
@@ -34,7 +34,7 @@ jobs:
       - name: Validate ARM template
         uses: Azure/data-factory-validate-action@v1.1.6
         with:
-          path: my_root_folder/factory/dev-datafact-gs/
+          path: ./
           id: /subscriptions/${{secrets.AZURE_SUBSCRIPTION_ID}}/resourceGroups/rg-datafact/providers/Microsoft.DataFactory/factories/dev-datafact-gs
 
       - name: Export Azure Data Factory
