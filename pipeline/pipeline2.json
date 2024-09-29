@@ -3,16 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Wai_siii",
-				"type": "Wait",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"waitTimeInSeconds": 1
-				}
-			},
-			{
-				"name": "Wait4",
+				"name": "Wait4ffsdfdsfdsfdsf",
 				"type": "Wait",
 				"dependsOn": [],
 				"userProperties": [],
