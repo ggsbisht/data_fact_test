@@ -29,7 +29,6 @@ jobs:
       - name: Check ARM template path
         run: |
           echo "Checking path: ${{ steps.export1.outputs.arm-template-directory }}"
-          ls -l ${{ steps.export1.outputs.arm-template-directory }} 
           
       - name: Validate ARM template
         uses: Azure/data-factory-validate-action@v1.1.6
