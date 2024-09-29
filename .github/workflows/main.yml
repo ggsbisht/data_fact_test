@@ -16,11 +16,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '18.x'
-  displayName: 'Install Node.js'
+      - name: NodeTool@0
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
          
       - name: Export ARM template
         id: export1
