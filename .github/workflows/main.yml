@@ -12,6 +12,11 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: ./react
+        
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -46,7 +51,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: adf-armtemplate
-          path: ${{ steps.export.outputs.arm-template-directory }}
+          //path: ${{ steps.export.outputs.arm-template-directory }}
+          path: react/react-bundle 
           if-no-files-found: error
 
   
