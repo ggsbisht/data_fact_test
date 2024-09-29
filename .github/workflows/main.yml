@@ -43,10 +43,10 @@ jobs:
                   
       - uses: actions/upload-artifact@v3
         with:
-            name: adf-armtemplate
-            path: /dev-datafact-gs/armTemplate
-            if-no-files-found: error
-            include-hidden-files: false
+          name: adf-armtemplate
+          path: ${{ steps.export.outputs.arm-template-directory }}
+          if-no-files-found: error
+          nclude-hidden-files: false
 
   
   deploy:
