@@ -88,7 +88,16 @@
 						}
 					},
 					{
-						"name": "Wait",
+						"name": "Waitdfdfd",
+						"type": "Wait",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"waitTimeInSeconds": 1
+						}
+					},
+					{
+						"name": "Wait24d",
 						"type": "Wait",
 						"dependsOn": [],
 						"userProperties": [],
