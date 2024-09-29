@@ -45,8 +45,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: adf-armtemplate
-          //path: ${{ steps.export.outputs.arm-template-directory }}
-          path: react/react-bundle 
+          path: ${{ steps.export.outputs.arm-template-directory }}
           if-no-files-found: error
 
   
