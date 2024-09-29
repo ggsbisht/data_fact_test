@@ -44,7 +44,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
             name: adf-armtemplate
-            path: dev-datafact-gs/armTemplate
+            path: /dev-datafact-gs/armTemplate
             if-no-files-found: error
             include-hidden-files: false
 
