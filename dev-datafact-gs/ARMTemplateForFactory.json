@@ -79,34 +79,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Wait23445",
-						"type": "Wait",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"waitTimeInSeconds": 1
-						}
-					},
-					{
-						"name": "Waitdfdfds",
-						"type": "Wait",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"waitTimeInSeconds": 1
-						}
-					},
-					{
-						"name": "Wait24d",
-						"type": "Wait",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"waitTimeInSeconds": 1
-						}
-					},
-					{
-						"name": "Wait2344",
+						"name": "Wai_siiiiikk",
 						"type": "Wait",
 						"dependsOn": [],
 						"userProperties": [],
