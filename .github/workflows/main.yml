@@ -40,13 +40,13 @@ jobs:
         id: export
         uses: Azure/data-factory-export-action@v1.2.0
       
-          
-      - name: Publish ARM template
-        uses: actions/upload-artifact@v3
+                  
+      - uses: actions/upload-artifact@v3
         with:
-          name: adf-armtemplate
-          path: ${{ steps.export.outputs.arm-template-directory }}
-          if-no-files-found: error
+            name: adf-armtemplate
+            path: ./armTemplate
+            if-no-files-found: error
+            include-hidden-files: false
 
   
   deploy:
