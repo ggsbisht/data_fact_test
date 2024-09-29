@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Wait4ffsdffdsf",
+				"name": "Wai_siii",
 				"type": "Wait",
 				"dependsOn": [],
 				"userProperties": [],
@@ -12,7 +12,7 @@
 				}
 			},
 			{
-				"name": "Wait1",
+				"name": "Wait4",
 				"type": "Wait",
 				"dependsOn": [],
 				"userProperties": [],
@@ -21,6 +21,8 @@
 				}
 			}
 		],
-		"annotations": []
-	}
+		"annotations": [],
+		"lastPublishTime": "2024-09-29T06:32:33Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }
