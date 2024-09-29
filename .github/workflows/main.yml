@@ -1,0 +1,73 @@
+name: Deploy ARM template to Azure Data Factory
+
+on:
+  push:
+    branches:
+      - main
+      
+permissions:
+  id-token: write
+  contents: read
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+         node-version: '18.x' 
+         
+      - name: Export ARM template
+        id: export1
+        run: |
+          echo "::set-output name=arm-template-directory::my_root_folder/factory/dev-datafact-gs"
+
+      - name: Check ARM template path
+        run: |
+          echo "Checking path: ${{ steps.export1.outputs.arm-template-directory }}"
+          ls -l ${{ steps.export.outputs.arm-template-directory }} 
+          
+      - name: Validate ARM template
+        uses: Azure/data-factory-validate-action@v1.1.6
+        with:
+          path: my_root_folder/factory/dev-datafact-gs/
+          id: /subscriptions/${{secrets.AZURE_SUBSCRIPTION_ID}}/resourceGroups/rg-datafact/providers/Microsoft.DataFactory/factories/dev-datafact-gs
+
+      - name: Export Azure Data Factory
+        id: export
+        uses: Azure/data-factory-export-action@v1.2.0
+      
+          
+      - name: Publish ARM template
+        uses: actions/upload-artifact@v3
+        with:
+          name: adf-armtemplate
+          path: ${{ steps.export.outputs.arm-template-directory }}
+          if-no-files-found: error
+
+  
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login via Az module
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+     
+      - name: Download ARM template
+        uses: actions/download-artifact@v3
+        with:
+          name: adf-armtemplate
+
+      - name: Deploy resources
+        uses: Azure/data-factory-deploy-action@v1.2.0
+        with:
+          resourceGroupName: ${{ secrets.AZURE_RG }} 
+          dataFactoryName: ${{ secrets.AZURE_DATA_FACTORY }} 
+          // template: './adf_publish/ARMTemplateForFactory.json'  # ARM template file path
+          // parameters: './adf_publish/ARMTemplateParametersForFactory.json'  # Parameters file path
+          // deploymentName: 'adf-deployment'
