@@ -38,7 +38,12 @@ jobs:
 
       - name: Export Azure Data Factory
         id: export
-        uses: Azure/data-factory-export-action@v1.2.0
+        uses: Azure/data-factory-export-action@v1.2.0    
+        with:
+          path: ./
+          id: /subscriptions/${{secrets.AZURE_SUBSCRIPTION_ID}}/resourceGroups/rg-datafact/providers/Microsoft.DataFactory/factories/dev-datafact-gs
+           
+          
       
                   
       - uses: actions/upload-artifact@v3
